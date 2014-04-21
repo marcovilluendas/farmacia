@@ -1,0 +1,97 @@
+
+body {
+	
+	
+}
+
+a {
+	text-decoration: none;
+}	
+#header {
+	background-color: black;
+}
+
+h1 {
+	font-size: 38px;
+	text-align: center;
+}
+
+.right {
+	float: left;
+	}
+	
+
+.precio {
+	font-size:20px;
+}
+
+
+.formulario {
+
+		margin: 0 auto;
+		width: 70%;
+		font-size: 18px;
+		padding: 30px;
+		border-left: 1px solid black;
+		border-right: 1px solid black;
+}
+
+
+thead {
+	background-color: #1e62d0;
+	font-weight: bold;
+	color: white;
+}
+
+th {
+	background-color: #1e62d0;
+	font-weight: bold;
+	color: white;
+	}
+
+
+.classname {
+	-moz-box-shadow:inset 0px 0px 0px 4px #d3dae3;
+	-webkit-box-shadow:inset 0px 0px 0px 4px #d3dae3;
+	box-shadow:inset 0px 0px 0px 4px #d3dae3;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #3d94f6), color-stop(1, #1e62d0) );
+	background:-moz-linear-gradient( center top, #3d94f6 5%, #1e62d0 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3d94f6', endColorstr='#1e62d0');
+	background-color:#3d94f6;
+	-webkit-border-top-left-radius:20px;
+	-moz-border-radius-topleft:20px;
+	border-top-left-radius:20px;
+	-webkit-border-top-right-radius:0px;
+	-moz-border-radius-topright:0px;
+	border-top-right-radius:0px;
+	-webkit-border-bottom-right-radius:20px;
+	-moz-border-radius-bottomright:20px;
+	border-bottom-right-radius:20px;
+	-webkit-border-bottom-left-radius:0px;
+	-moz-border-radius-bottomleft:0px;
+	border-bottom-left-radius:0px;
+	text-indent:0;
+	border:3px solid #337fed;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	height:72px;
+	line-height:72px;
+	width:119px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #1570cd;
+	margin-left: 20px;
+}
+.classname:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #1e62d0), color-stop(1, #3d94f6) );
+	background:-moz-linear-gradient( center top, #1e62d0 5%, #3d94f6 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e62d0', endColorstr='#3d94f6');
+	background-color:#1e62d0;
+}.classname:active {
+	position:relative;
+	top:1px;
+}
