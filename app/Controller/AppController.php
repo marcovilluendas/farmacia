@@ -67,7 +67,6 @@ public function isAuthorized($user) {
 
     public function beforeFilter() {
         $this->Auth->allow('index', 'view', 'login', 'logout', 'listado', 'buscar');
-		
     }
 	
     public function beforeRender() {

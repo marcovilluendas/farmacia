@@ -1,19 +1,41 @@
-<?php
+﻿<style type="text/css" title="currentStyle">
+			@import "../../DataTables/media/css/demo_page.css"; @import "../../DataTables/media/css/header.ccss";
+			@import "../../DataTables/media/css/demo_table.css";
+</style>
+<script type="text/javascript" src="../../DataTables/media/js/jquery.dataTables.min.js"></script>
+<script>
 
-		echo $this->Html->script('admin');
-		echo $this->Html->script('jquery-ui-1.10.4/ui/jquery-ui.js');
-		
-?>
+$(document).ready(function() {
+    $('#myTable').dataTable({
+			 "bPaginate": false,
+			 "bInfo": false,
+			
+            "oLanguage": {
+            "sProcessing":     "Procesando...",
+            "sLengthMenu":     "Mostrar _MENU_ registros",
+            "sZeroRecords":    "No se encontraron resultados",
+            "sEmptyTable":     "Ningún dato disponible en esta tabla",
+            "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+            "sInfoPostFix":    "",
+            "sSearch":         "Buscar:",
+            "sUrl":            "",
+            "sInfoThousands":  ",",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+            "sFirst":    "Primero",
+            "sLast":     "Último",
+            "sNext":     "Siguiente",
+            "sPrevious": "Anterior"
+			},
+			}
+	})
+} );
 
-	<div class="actions">
-					<ul>
-						<li><a href="#" class="boton_admin add">
-							<span class="add">Nuevo post</span></a>
-						</li>
-					</ul>
-	</div>
+</script>
 
-	<div id="add_post" class="add_from_admin dialog_form" title="Nuevo post">
+	<div id="add_post" class="add_from_admin dialog_form" title="Nueva Oferta">
 		<?php
 			echo $this->Form->create('Oferta', array('url'=>array('action'=>'add', 'admin' => true)));
 			echo $this->Form->input('articulo', array('label'=>'Articulo', 'type' => 'text'));
@@ -24,16 +46,17 @@
 
 <h1> MIS OFERTAS ACTUALES </h1>
 
-	<table class="sieve table table-striped table-hover">
-				<thead id="header">
+	<table id="myTable">
+				<thead>
 					<tr>
-						<th>Art�culo</th>
+						<th>Artículo</th>
 						<th>Descripcion</th>
 						<th>Precio</th>
 						<th>Stock</th>
 						<th>Farmacia</th>
-						<th>Direcci�n</th>
+						<th>Dirección</th>
 						<th>Localidad</th>
+						<th>Ver/Editar/Borrar</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -44,29 +67,64 @@
 						<td><?php echo $oferta['Oferta']['descripcion']; ?></td>
 						<td><?php echo $oferta['Oferta']['precio']; ?></td>
 						<td><?php echo $oferta['Oferta']['stock']; ?></td>
-						<td><?php echo $oferta['Farmacia']['nombre']; ?></td>
+						<td><?php echo $this->Html->link('', array('action' => 'view', $oferta['Farmacia']['id'])); ?>
+						<?php echo $oferta['Farmacia']['nombre']; ?></td>
 						<td><?php echo $oferta['Farmacia']['direccion']; ?></td>
 						<td><?php echo $oferta['Farmacia']['localidad']; ?></td>
-						<td><?php echo $oferta['Farmacia']['user_id']; ?></td>
-						
+
 						<td>
-						<button type="button" class="btn">
-							<?php echo $this->Html->link('VER', array('action' => 'view', $oferta['Oferta']['id'])); ?>
-						<button>
-						<button type="button" class="btn">
-							<?php echo $this->Html->link('EDITAR', array('action' => 'edit', 'admin' => true, $oferta['Oferta']['id'])); ?>
-						</button>
+						
+							<button type="button" class="btn">
+								<?php echo $this->Html->link('VER', array('action' => 'view', $oferta['Oferta']['id'])); ?>
+							<button>
+							
+							<button type="button" class="btn">
+								<?php echo $this->Html->link('EDITAR', array('action' => 'edit', 'admin' => true, $oferta['Oferta']['id'])); ?>
+							</button>
+							
+							<?php echo $this->Form->postLink(
+								'Borrar',
+								array('action' => 'delete', $oferta['Oferta']['id']),
+								array('confirm' => 'Estas seguro que quieres borrar este post? ')
+							)?>
+
 						</td>
 					</tr>
-				</tbody>
-				<?php endforeach; ?>
-				<?php unset($oferta); ?>
 
+					
+				<?php endforeach; ?>
+				<div class="actions right">
+					<ul>
+						<li><a href="#" class="boton_admin add">
+							<span class="add">Insertar Nueva Oferta</span></a>
+						</li>
+						<li>
+							<?php echo $this->Html->link("Editar Farmacia", 
+									array(
+									'controller' => 'farmacias', 
+									'action' => 'edit', 
+									'admin'=>false,
+									$oferta['Farmacia']['id']
+									)); ?>
+						</li>
+						
+						<li>
+							<?php echo $this->Html->link("MI FARMACIA", 
+									array(
+									'controller' => 'farmacias', 
+									'action' => 'view', 
+									'admin'=>false,
+									$oferta['Farmacia']['id']
+									)); ?>				
+						</li>
+					</ul>
+				</div>
+				
+				<?php unset($oferta); ?>
+	</tbody>
 	</table>
-	
-	
-	
 	<script>
+	
 	$(".add_from_admin").dialog({
 		autoOpen: false,
 		height: 'auto',
@@ -116,3 +174,4 @@
 			$("table.sieve").sieve();
 	}); 
 </script>
+

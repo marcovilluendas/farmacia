@@ -30,11 +30,16 @@ $cakeDescription = __d('cake_dev', 'FarmaLink');
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
+		
 		echo $this->Html->css('style');
+		echo $this->Html->css('bootstrap');
 		echo $this->Html->script('jquery-2.1.0.min');
 		echo $this->Html->script('jquery.tablesorter');
-
+		
+		/*
+		echo $this->Html->script('jquery.validate');
+		*/
+	
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');

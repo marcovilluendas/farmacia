@@ -1593,11 +1593,13 @@ a.boton_admin {
 	box-shadow: 0 0 3px #EEEEEE;
 	padding: 7px;
 	text-decoration: none;
+	font-size: 30px;
 	behavior: url(border-radius.htc);
 }
 
 a.boton_admin SPAN {
 	padding: 5px;
+	font-size: 30px;
 }
 
 a.boton_admin_pqno SPAN {

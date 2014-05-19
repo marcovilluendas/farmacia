@@ -1,4 +1,4 @@
-<?php
+Ôªø<?php
 
 echo $this->Html->css('jquery.autocomplete.css');
 
@@ -20,8 +20,9 @@ echo $this->Html->script('fancybox/jquery.fancybox.js');
 
 ?>
 <div class="container">
-<div class="formulario">
-<h1>Registre su Farmacia</h1>
+
+	<div class="formulario">
+		<h1>Edite la informaci√≥n de su Farmacia</h1>
 
 <?php
 		echo $this->Form->create('Farmacia');
@@ -29,58 +30,42 @@ echo $this->Html->script('fancybox/jquery.fancybox.js');
 		echo $this->Form->input('nombre');
 		echo $this->Form->input('direccion');
 		echo $this->Form->input('cp');
-		
-		$options = array(
-			'' => '== Todas las localidades ==',
-			'A CoruÒa' => 'A CoruÒa',
-			'Alava' => 'Alava',
-			'Albacete' => 'Albacete',
-			'Alicante' => 'Alicante',
-			'AlmerÌa' => 'AlmerÌa',
-			'Avila' => 'Avila',
-			'Badajoz' => 'Badajoz',
-			'Barcelona' => 'Barcelona',
-			'Bilbao' => 'Bilbao',
-			'Madrid' => 'Madrid',
-			'Zaragoza' => 'Zaragoza'
-			
-
-		);
-
-		echo $this->Form->input('localidad', array('options' => $options));
-
+		echo $this->Form->input('localidad');
 		echo $this->Form->input('telefono');
 		echo $this->Form->input('email');
 ?>		
-		<div onLoad="load();"  onunload="GUnload();">
-     	<h4> Localizar su farmacia en google maps </h4>
-		<div class="pull-right">
-			<p> Le aconsejamos buscar su direcciÛn con el siguiente formato: (Fita 15, Zaragoza) </p>
-		</div>
-	 
-			<form id="google" name="google" action="#">
-	 
-			<p><label>Direcci&oacute;n: </label>
-			<input style="width:400px" type="text" id="direccion" name="direccion" value=""/>
-			<button id="pasar">Obtener coordenadas</button> 
-			</p>
-			
-			 
-			<!-- div donde se dibuja el mapa-->
-			<div id="map_canvas" style="width:800px;height:300px;"></div>
-			 <br>
-			<!--campos ocultos donde guardamos los datos-->
-			<!-- <p><label>Latitud: </label><input type="text" readonly name="lat" id="lat"/></p> -->
-			
-			<p><label> Latitud:</label> <?php echo $this->Form->input('lat', array('readonly name' => 'lat', 'id' => 'lat')); ?></p>
-			<p><label> Longitud:</label> <?php echo $this->Form->input('long', array('readonly name' => 'long', 'id' => 'long')); ?></p>
-		
-		</form>
-		
 
- 		
-		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
-		<?php echo $this->Form->end('Guardar');?>
+
+
+		<div onLoad="load();"  onunload="GUnload();">
+				<h4> Localizar su farmacia en google maps </h4>
+				<div class="pull-right">
+					<p> Le aconsejamos buscar su direcci√≥n con el siguiente formato: (Fita 15, Zaragoza) </p>
+				</div>
+			 
+					<form id="google" name="google" action="#">
+				 
+						<p><label>Direcci&oacute;n: </label>
+						<input style="width:400px" type="text" id="direccion" name="direccion" value=""/>
+						<button id="pasar">Obtener coordenadas</button> 
+						</p>
+						
+						 
+						<!-- div donde se dibuja el mapa-->
+						<div id="map_canvas" style="width:800px;height:300px;"></div>
+						 <br>
+						<!--campos ocultos donde guardamos los datos-->
+						<!-- <p><label>Latitud: </label><input type="text" readonly name="lat" id="lat"/></p> -->
+						
+						<p><label> Latitud:</label> <?php echo $this->Form->input('lat', array('readonly name' => 'lat', 'id' => 'lat')); ?></p>
+						<p><label> Longitud:</label> <?php echo $this->Form->input('long', array('readonly name' => 'long', 'id' => 'long')); ?></p>
+					
+					</form>
+			
+
+			
+			<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
+			<?php echo $this->Form->end('Guardar');?>
 		</div>
      </div>
 	 

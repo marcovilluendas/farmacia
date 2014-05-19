@@ -4,6 +4,10 @@ class OfertasController extends AppController {
 var $components = array('Session');
 
         public function index() {
+		
+			$this->loadModel('Farmacia');
+			$this->set('localidad', $this->Farmacia->find('all'));
+
         }    
 		
 
@@ -15,7 +19,8 @@ var $components = array('Session');
 				$cond=array(
 					//"Farmacia.active" => true,
 					"Farmacia.localidad LIKE" => "%{$this->data['Farmacia']['localidad']}%",
-					"Oferta.articulo LIKE" => "%{$this->data['Farmacia']['articulo']}%"
+					"Oferta.articulo LIKE" => "%{$this->data['Farmacia']['articulo']}%",
+					"Farmacia.cp LIKE" => "%{$this->data['Farmacia']['cp']}%"
 				);
 			}else{
 				$cond = array(
@@ -46,6 +51,7 @@ var $components = array('Session');
 	
 		public function admin_edit($id = null) {
 		
+		
 			$uid = $this->Session->read('Auth.User.id');
 				
 				if (empty($uid)){
@@ -65,6 +71,8 @@ var $components = array('Session');
 				}
 				if ($this->request->is(array('post', 'put'))) {
 						$this->Oferta->id = $id;
+						
+							
 							if ($this->Oferta->save($this->request->data)) {
 								$this->Session->setFlash(__('=== Su oferta ha sido actualizada ==='));
 								return $this->redirect(array('action' => 'ofertas_farmacias/$uid', 'admin' => false));
@@ -75,26 +83,35 @@ var $components = array('Session');
 							if (!$this->request->data) {
 								$this->request->data = $oferta;
 							}
-		}		
-		
-		
-		
-		
-		
-		public function view($id=null) {
-		 if (!$id) {
-				throw new NotFoundException(__('Invalid post'));
-			}
-			
-			$this->loadModel('Farmacia');
-			$oferta = $this->Oferta->findById($id);
-			
-			
-			if (!$oferta) {
-				throw new NotFoundException(__('Invalid post'));
-			}
+		}
 
-			$this->set('oferta', $oferta);
+		
+		public function delete($id) {
+		
+			if (!$this->request->is('post')) {
+				throw new MethodNotAllowedException();
+			}
+			if ($this->Oferta->delete($id)) {
+				$this->Session->setFlash('La oferta con id: ' . $id . ' ha sido borrada.');
+				$this->redirect(array('action' => 'ofertas_farmacias/$uid', 'admin' => false));
+			}
+		}		
+
+		public function view($id=null) {
+		
+				 if (!$id) {
+						throw new NotFoundException(__('Invalid post'));
+					}
+					
+					$this->loadModel('Farmacia');
+					$oferta = $this->Oferta->findById($id);
+					
+					
+					if (!$oferta) {
+						throw new NotFoundException(__('Invalid post'));
+					}
+
+					$this->set('oferta', $oferta);
 		}
 		
 		
@@ -104,52 +121,52 @@ var $components = array('Session');
 		
 		
 		public function mis_ofertas($id=null) {
-		
-		if (!$id) {
-				throw new NotFoundException(__('Invalid post'));
-			}
-			
-			$this->loadModel('Farmacia');
-			$oferta = $this->Oferta->findById($id);
-			
-			
-			if (!$oferta) {
-				throw new NotFoundException(__('Invalid post'));
-			}
+				
+				if (!$id) {
+						throw new NotFoundException(__('Invalid post'));
+					}
+					
+					$this->loadModel('Farmacia');
+					$oferta = $this->Oferta->findById($id);
+					
+					
+					if (!$oferta) {
+						throw new NotFoundException(__('Invalid post'));
+					}
 
-			$this->set('oferta', $oferta);
+					$this->set('oferta', $oferta);
 		}
 
 
 		public function ofertas_farmacias($id=null) {
 		
-		if (!$id) {
-				throw new NotFoundException(__('Invalid post'));
-			}
-			
-			$this->loadModel('Farmacia');
-			$uid = $this->Session->read('Auth.User.id');
-			
-	
-			$oferta = $this->Oferta->find('all', array(
-			'conditions' => array( 'Farmacia.user_id' => $uid)
+				if (!$id) {
+						throw new NotFoundException(__('Invalid post'));
+					}
 					
-			));
-			
-			$farmacia = $this->Farmacia->find('all', array(
-			'conditions' => array( 'Farmacia.user_id' => $uid)
+					$this->loadModel('Farmacia');
+					$uid = $this->Session->read('Auth.User.id');
 					
-			));
 			
-			
-			
-			if (!$farmacia) {
-				return $this->redirect(array('controller' => 'farmacias','action' => 'add'));
-			}
-			
+					$oferta = $this->Oferta->find('all', array(
+					'conditions' => array( 'Farmacia.user_id' => $uid)
+							
+					));
+					
+					$farmacia = $this->Farmacia->find('all', array(
+					'conditions' => array( 'Farmacia.user_id' => $uid)
+							
+					));
+					
+					
+					
+					if (!$farmacia) {
+						return $this->redirect(array('controller' => 'farmacias','action' => 'add'));
+					}
+					
 
-			
-			$this->set('oferta', $oferta);
+					
+					$this->set('oferta', $oferta);
 		}
 		
 }

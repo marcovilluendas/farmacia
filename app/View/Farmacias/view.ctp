@@ -1,47 +1,77 @@
+﻿
 
 <div class="section-colored">
 <div class="row">
 
-			<?php echo $this->Form->create('Farmacia'); ?> 
+	<div class="col-md-5 col-xs-12">
 
-				<h1><?=$farmacia['Farmacia']['nombre']?></h1>
-				<hr>
+				<?php echo $this->Form->create('Farmacia'); ?> 
 
-		
-			<? foreach($farmacia['Image'] as $img): ?>
-				<img src="<?=Router::url("/files/images/".$img['archivo']) ?>" style="height:200px; width:200px">
-			<? endforeach; ?>
+					<h1><?=$farmacia['Farmacia']['nombre']?></h1>
+					<hr>
+
 			
+				<? foreach($farmacia['Image'] as $img): ?>
+					<img src="<?=Router::url("/files/images/".$img['archivo']) ?>" style="height:200px; width:200px">
+				<? endforeach; ?>
+				
+				
+				<body onLoad="load();"  onunload="GUnload();">
 			
-			<body onLoad="load();"  onunload="GUnload();">
-     	
-					<!-- div donde se dibuja el mapa-->
-					<div id="map_canvas" style="width:600px;height:400px;"></div>
-					 <br>
-					<!--campos ocultos donde guardamos los datos-->
-					<!-- <p><label>Latitud: </label><input type="text" readonly name="lat" id="lat"/></p> -->
-					
-					<?php echo $this->Form->input('lat', array('readonly name' => 'lat', 'id' => 'lat', 'type' => 'hidden')); ?></p>
-					<?php echo $this->Form->input('long', array('readonly name' => 'long', 'id' => 'long', 'type' => 'hidden')); ?></p>
-		
-		</form>
+						<!-- div donde se dibuja el mapa-->
+						<div id="map_canvas" style="width:600px;height:400px;"></div>
+						 <br>
+						<!--campos ocultos donde guardamos los datos-->
+						<!-- <p><label>Latitud: </label><input type="text" readonly name="lat" id="lat"/></p> -->
+						
+						<?php echo $this->Form->input('lat', array('readonly name' => 'lat', 'id' => 'lat', 'type' => 'hidden')); ?></p>
+						<?php echo $this->Form->input('long', array('readonly name' => 'long', 'id' => 'long', 'type' => 'hidden')); ?></p>
+			
+			</form>
 
-		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
-		
-     </body>
+			<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
+			
+		 </body>
 
-		
+
+				
+				
+				<label>Dirección: <h3><?=$farmacia['Farmacia']['direccion']?></h3>
+				
+				<label>Código Postal: </label><h3><?=$farmacia['Farmacia']['cp']?></h3>
+				<label>Email: </label> <h3><?=$farmacia['Farmacia']['email']?></h3>
+				
+	</div>
+
+
+<div class="col-md-7 col-xs-12">
 	
-			
-			</div>
-			
-			
-			<label>Direcci�n: <h3><?=$farmacia['Farmacia']['direccion']?></h3>
-			
-			<label>C�digo Postal: </label><h3><?=$farmacia['Farmacia']['cp']?></h3>
-			<label>Email: </label> <h3><?=$farmacia['Farmacia']['email']?></h3>
-			
+	<h2> Ofertas actuales de esta Farmacia </h2>
+		<table id="myTable" class="sieve table table-striped table-hover">
+				<thead>
+					<tr>
+						<th>Artículo</th>
+						<th>Descripcion</th>
+						<th>Precio</th>
+					</tr>
+				</thead>
+				<tbody>
+				
+				<?php  foreach ($oferta as $oferta): ?>
+				
+					<tr>
+						<td><?php echo $oferta['Oferta']['articulo']; ?></td>
+						<td><?php echo $oferta['Oferta']['descripcion']; ?></td>
+						<td class="precio"><?php echo $oferta['Oferta']['precio']; ?> €</td>
+						<td><button type="button" class="btn"><?php echo $this->Html->link('VER', array('controller' => 'ofertas', 'action' => 'view',$oferta['Oferta']['id'])); ?>
+					</tr>
+				
+				<?php endforeach; ?>
+				<?php unset($oferta); ?>
+				</tbody>
+		</table>
 </div>
+
 </div>	
 		
 		
