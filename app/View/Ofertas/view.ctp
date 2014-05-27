@@ -2,7 +2,7 @@
 
 
 <div class="section-colored">
-<div class="row">
+<div class="row view">
 
 
 <div class="col-md-3">

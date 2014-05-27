@@ -1,19 +1,6 @@
 <?php
 /**
- *
- *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.View.Layouts
- * @since         CakePHP(tm) v 0.10.0.1076
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+
  */
 
 $cakeDescription = __d('cake_dev', 'FarmaLink');
@@ -27,35 +14,44 @@ $cakeDescription = __d('cake_dev', 'FarmaLink');
 		<?php echo $cakeDescription ?>:
 		<?php echo $title_for_layout; ?>
 	</title>
+	
 	<?php
 		echo $this->Html->meta('icon');
-
-		
+?>
+	<link href='http://fonts.googleapis.com/css?family=Raleway:900,400' rel='stylesheet' type='text/css'>
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<?php	
+	
+		echo $this->Html->css('reset');
 		echo $this->Html->css('style');
 		echo $this->Html->css('bootstrap');
+		
 		echo $this->Html->script('jquery-2.1.0.min');
 		echo $this->Html->script('jquery.tablesorter');
-		
-		/*
-		echo $this->Html->script('jquery.validate');
-		*/
+
+		echo $this->Html->script('jquery.autocomplete.min');
+		echo $this->Html->script('currency-autocomplete');
+	
 	
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
-	
+	<?php /*
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/base/jquery-ui.css" />
+	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/base/jquery-ui.css" />*/ ?>
 	<script src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
 	
 	<script type="text/javascript" src="DataTables/media/js/jquery.dataTables.min.js"></script>
 	
 	
 </head>
+
 <body>
 	<div id="container">
+	
+	
 		<div id="header">
 			<?php echo $this->element('header'); ?>
 		</div>
@@ -65,6 +61,8 @@ $cakeDescription = __d('cake_dev', 'FarmaLink');
 
 			<?php echo $this->fetch('content'); ?>
 		</div>
+		
+		
 		<div id="footer">
 			<?php echo $this->Html->link(
 					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
@@ -74,7 +72,10 @@ $cakeDescription = __d('cake_dev', 'FarmaLink');
 			?>
 		</div>
 	</div>
+	
+	
+	<?php /*
 	<?php echo $this->element('sql_dump'); ?>
-	 <?php debug($auth_user); ?>
+	<?php debug($auth_user);  */ ?>
 </body>
 </html>

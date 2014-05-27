@@ -15,13 +15,16 @@ var $components = array('Session');
 				
 			$this->loadModel('Farmacia');
 		
+		
+
+
 			if(!empty($this->data) && $this->request->is('post')){
 				$cond=array(
-					//"Farmacia.active" => true,
-					"Farmacia.localidad LIKE" => "%{$this->data['Farmacia']['localidad']}%",
+					'or' => array(
+					"Farmacia.localidad LIKE" => "%{$this->data['Farmacia']['articulo']}%",
 					"Oferta.articulo LIKE" => "%{$this->data['Farmacia']['articulo']}%",
-					"Farmacia.cp LIKE" => "%{$this->data['Farmacia']['cp']}%"
-				);
+					"Farmacia.cp LIKE" => "%{$this->data['Farmacia']['articulo']}%"
+				));
 			}else{
 				$cond = array(
 					//"Farmacia.active" => true,

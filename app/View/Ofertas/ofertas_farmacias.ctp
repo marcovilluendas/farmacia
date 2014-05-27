@@ -3,6 +3,11 @@
 			@import "../../DataTables/media/css/demo_table.css";
 </style>
 <script type="text/javascript" src="../../DataTables/media/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/base/jquery-ui.css" />
+
+
+
 <script>
 
 $(document).ready(function() {
@@ -35,6 +40,8 @@ $(document).ready(function() {
 
 </script>
 
+
+<div class="container">
 	<div id="add_post" class="add_from_admin dialog_form" title="Nueva Oferta">
 		<?php
 			echo $this->Form->create('Oferta', array('url'=>array('action'=>'add', 'admin' => true)));
@@ -49,9 +56,9 @@ $(document).ready(function() {
 	<table id="myTable">
 				<thead>
 					<tr>
-						<th>Artículo</th>
+						<th class="arti">Artículo</th>
 						<th>Descripcion</th>
-						<th>Precio</th>
+						<th width="80">Precio</th>
 						<th>Stock</th>
 						<th>Farmacia</th>
 						<th>Dirección</th>
@@ -63,9 +70,9 @@ $(document).ready(function() {
 				
 				<?php  foreach ($oferta as $oferta): ?>
 					<tr>
-						<td><?php echo $oferta['Oferta']['articulo']; ?></td>
+						<td class="arti"><?php echo $oferta['Oferta']['articulo']; ?></td>
 						<td><?php echo $oferta['Oferta']['descripcion']; ?></td>
-						<td><?php echo $oferta['Oferta']['precio']; ?></td>
+						<td><?php echo $oferta['Oferta']['precio']; ?> €</td>
 						<td><?php echo $oferta['Oferta']['stock']; ?></td>
 						<td><?php echo $this->Html->link('', array('action' => 'view', $oferta['Farmacia']['id'])); ?>
 						<?php echo $oferta['Farmacia']['nombre']; ?></td>
@@ -76,23 +83,25 @@ $(document).ready(function() {
 						
 							<button type="button" class="btn">
 								<?php echo $this->Html->link('VER', array('action' => 'view', $oferta['Oferta']['id'])); ?>
-							<button>
+							</button>
 							
 							<button type="button" class="btn">
 								<?php echo $this->Html->link('EDITAR', array('action' => 'edit', 'admin' => true, $oferta['Oferta']['id'])); ?>
 							</button>
 							
+							<button type="button" class="btn">
 							<?php echo $this->Form->postLink(
-								'Borrar',
+								'BORRAR',
 								array('action' => 'delete', $oferta['Oferta']['id']),
 								array('confirm' => 'Estas seguro que quieres borrar este post? ')
 							)?>
-
+							</button>
 						</td>
 					</tr>
 
 					
 				<?php endforeach; ?>
+				
 				<div class="actions right">
 					<ul>
 						<li><a href="#" class="boton_admin add">
@@ -123,7 +132,10 @@ $(document).ready(function() {
 				<?php unset($oferta); ?>
 	</tbody>
 	</table>
-	<script>
+</div>
+
+
+<script>
 	
 	$(".add_from_admin").dialog({
 		autoOpen: false,

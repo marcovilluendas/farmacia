@@ -34,38 +34,45 @@ $(document).ready(function() {
 	})
 } );
 </script>
-<table id="myTable" class="sieve table table-striped table-hover">
-				<thead>
-					<tr>
-						<th>Artículo</th>
-						<th>Descripcion</th>
-						<th>Precio</th>
-						<th>Farmacia</th>
-						<th>Dirección</th>
-						<th>Localidad</th>
-						<th>CPostal</th>
-						<th>Ver/Editar</th>
-					</tr>
-				</thead>
-				<tbody>
-				
-				<?php  foreach ($ofertas as $oferta): ?>
-				
-					<tr>
-						<td><?php echo $oferta['Oferta']['articulo']; ?></td>
-						<td><?php echo $oferta['Oferta']['descripcion']; ?></td>
-						<td class="precio"><?php echo $oferta['Oferta']['precio']; ?> €</td>
-						<td>
-						<?php echo $this->Html->link($oferta['Farmacia']['nombre'], array('controller' => 'farmacias', 'action' => 'view', $oferta['Farmacia']['id'])); ?>
-						
-						</td>
-						<td><?php echo $oferta['Farmacia']['direccion']; ?></td>
-						<td><?php echo $oferta['Farmacia']['localidad']; ?></td>
-						<td><?php echo $oferta['Farmacia']['cp']; ?></td>
-						<td><button type="button" class="btn"><?php echo $this->Html->link('VER', array('action' => 'view',$oferta['Oferta']['id'])); ?>
-					</tr>
-				
-				<?php endforeach; ?>
-				<?php unset($oferta); ?>
-				</tbody>
-</table>
+
+<div class="container">
+<div class="row">
+	<div class="col-lg-12 col-md-12">
+		<table id="myTable">
+					<thead>
+						<tr>
+							<th class="arti">Artículo</th>
+							<th>Descripcion</th>
+							<th class="preciot">Precio</th>
+							<th>Farmacia</th>
+							<th>Dirección</th>
+							<th>Localidad</th>
+							<th>CPostal</th>
+							<th>Ver/Editar</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+					<?php  foreach ($ofertas as $oferta): ?>
+					
+						<tr>
+							<td class="arti"><?php echo $oferta['Oferta']['articulo']; ?></td>
+							<td><?php echo $oferta['Oferta']['descripcion']; ?></td>
+							<td class="preciot"><?php echo $oferta['Oferta']['precio']; ?> €</td>
+							<td>
+							<?php echo $this->Html->link($oferta['Farmacia']['nombre'], array('controller' => 'farmacias', 'action' => 'view', $oferta['Farmacia']['id'])); ?>
+							
+							</td>
+							<td><?php echo $oferta['Farmacia']['direccion']; ?></td>
+							<td><?php echo $oferta['Farmacia']['localidad']; ?></td>
+							<td><?php echo $oferta['Farmacia']['cp']; ?></td>
+							<td><button type="button" class="btn"><?php echo $this->Html->link('VER', array('action' => 'view',$oferta['Oferta']['id'])); ?>
+						</tr>
+					
+					<?php endforeach; ?>
+					<?php unset($oferta); ?>
+					</tbody>
+	</table>
+	</div>
+</div>
+</div>

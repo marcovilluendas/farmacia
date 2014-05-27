@@ -1,9 +1,9 @@
 ﻿
 
 <div class="section-colored">
-<div class="row">
+<div class="row view">
 
-	<div class="col-md-5 col-xs-12">
+	<div class="col-lg-5 col-md-6 col-xs-12">
 
 				<?php echo $this->Form->create('Farmacia'); ?> 
 
@@ -19,7 +19,9 @@
 				<body onLoad="load();"  onunload="GUnload();">
 			
 						<!-- div donde se dibuja el mapa-->
-						<div id="map_canvas" style="width:600px;height:400px;"></div>
+						<div id="map">
+						<div id="map_canvas" style="width: 100%;height: 393px;"></div>
+						</div>
 						 <br>
 						<!--campos ocultos donde guardamos los datos-->
 						<!-- <p><label>Latitud: </label><input type="text" readonly name="lat" id="lat"/></p> -->
@@ -42,11 +44,13 @@
 				<label>Email: </label> <h3><?=$farmacia['Farmacia']['email']?></h3>
 				
 	</div>
+	<div class="col-lg-1 col-md-1 col-xs-12">
+	</div>
 
-
-<div class="col-md-7 col-xs-12">
+<div class="col-md-6 col-xs-12">
 	
 	<h2> Ofertas actuales de esta Farmacia </h2>
+	<hr>
 		<table id="myTable" class="sieve table table-striped table-hover">
 				<thead>
 					<tr>

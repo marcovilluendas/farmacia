@@ -1,10 +1,10 @@
 ﻿<style type="text/css" title="currentStyle">
-			@import "DataTables/media/css/demo_page.css"; @import "DataTables/media/css/header.ccss";
-			@import "DataTables/media/css/demo_table.css";
+			@import "../DataTables/media/css/demo_page.css"; @import "../DataTables/media/css/header.ccss";
+			@import "../DataTables/media/css/demo_table.css";
 </style>
+<script type="text/javascript" src="../DataTables/media/js/jquery.dataTables.min.js"></script>
 
 <script>
-
 		$(document).ready(function() {
 			$('#myTable').dataTable({
 					 "bPaginate": false,
@@ -35,36 +35,39 @@
 
 </script>
 
+<div class="row">
+	<div class="col-lg-12 col-md-12">
+		<table id="myTable">
+						<thead>
+							<tr>
+								<th>Nombre</th>
+								<th>Dirección</th>
+								<th>Localidad</th>
+								<th>CP</th>
+								<th>Email</th>
+								<th>Imagen</th>
+							</tr>
+						</thead>
+						<tbody>
 
-<table id="myTable"> 
-				<thead>
-					<tr>
-						<th>Nombre</th>
-						<th>Dirección</th>
-						<th>Localidad</th>
-						<th>CP</th>
-						<th>Email</th>
-						<th>Imagen</th>
-					</tr>
-				</thead>
-				<tbody>
+						<?php  foreach ($farmacias as $farmacia): ?>
+						 
+						<tr>
 
-				<?php  foreach ($farmacias as $farmacia): ?>
-				 
-				<tr>
+								<td><?php echo $farmacia['Farmacia']['nombre']; ?></td>
+								<td><?php echo $farmacia['Farmacia']['direccion']; ?></td>
+								<td><?php echo $farmacia['Farmacia']['localidad']; ?></td>
+								<td><?php echo $farmacia['Farmacia']['cp']; ?></td>
+								<td><?php echo $farmacia['Farmacia']['email']; ?></td>
+								<td><button type="button" class="btn"><?php echo $this->Html->link('VER', array('action' => 'view', $farmacia['Farmacia']['id'])); ?></button></td>
 
-						<td><?php echo $farmacia['Farmacia']['nombre']; ?></td>
-						<td><?php echo $farmacia['Farmacia']['direccion']; ?></td>
-						<td><?php echo $farmacia['Farmacia']['localidad']; ?></td>
-						<td><?php echo $farmacia['Farmacia']['cp']; ?></td>
-						<td><?php echo $farmacia['Farmacia']['email']; ?></td>
-						<td><button type="button" class="btn"><?php echo $this->Html->link('VER', array('action' => 'view', $farmacia['Farmacia']['id'])); ?></button></td>
-
-				</tr>
-				
-				<?php endforeach; ?>
-				<?php unset($farmacia); ?>
-				
-			
-</tbody>
-</table>
+						</tr>
+						
+						<?php endforeach; ?>
+						<?php unset($farmacia); ?>
+						
+					
+		</tbody>
+		</table>
+	</div>
+</div>

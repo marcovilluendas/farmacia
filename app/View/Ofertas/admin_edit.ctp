@@ -21,8 +21,13 @@ echo $this->Html->script('fancybox/jquery.fancybox.js');
 ?>
 
 <div class="container">
-	<div class="formulario">
-		<h1>Nueva oferta </h1>
+	<div class="row">
+	<div class="col-lg-12 col-md-12">
+	
+	
+	<div class="formularioedit">
+	
+		<h1>Editar Oferta</h1>
 			<hr>
 
 				<?php echo $this->Form->create('Oferta'); ?> 
@@ -61,6 +66,8 @@ echo $this->Html->script('fancybox/jquery.fancybox.js');
 					
 			
 				<?php echo $this->Form->end('Guardar');?>
+	</div>
+	</div>
 	</div>
 </div>
 
