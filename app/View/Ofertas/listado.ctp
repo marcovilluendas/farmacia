@@ -2,10 +2,11 @@
 			@import "../DataTables/media/css/demo_page.css"; @import "../DataTables/media/css/header.ccss";
 			@import "../DataTables/media/css/demo_table.css";
 </style>
+
 <script type="text/javascript" src="../DataTables/media/js/jquery.dataTables.min.js"></script>
 
-<script>
 
+<script>
 $(document).ready(function() {
     $('#myTable').dataTable({
 			 "bPaginate": false,
@@ -36,9 +37,13 @@ $(document).ready(function() {
 </script>
 
 <div class="container">
+<div class="contenido">
 <div class="row">
+<h1> Listado de Ofertas </h1>
 	<div class="col-lg-12 col-md-12">
+	
 		<table id="myTable">
+		
 					<thead>
 						<tr>
 							<th class="arti">Artículo</th>
@@ -74,5 +79,6 @@ $(document).ready(function() {
 					</tbody>
 	</table>
 	</div>
+</div>
 </div>
 </div>

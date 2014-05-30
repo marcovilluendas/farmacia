@@ -20,7 +20,12 @@ echo $this->Html->script('fancybox/jquery.fancybox.js');
 
 ?>
 <div class="container">
-<div class="formulario">
+<div class="row">
+	<div class="col-lg-12 col-md-12">
+	
+	
+	<div class="formularioedit">
+
 <h1>Registre su Farmacia</h1>
 
 <?php

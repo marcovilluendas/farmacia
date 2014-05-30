@@ -42,6 +42,8 @@ $(document).ready(function() {
 
 
 <div class="container">
+<div class="contenido">
+<div class="row">
 	<div id="add_post" class="add_from_admin dialog_form" title="Nueva Oferta">
 		<?php
 			echo $this->Form->create('Oferta', array('url'=>array('action'=>'add', 'admin' => true)));
@@ -129,11 +131,12 @@ $(document).ready(function() {
 					</ul>
 				</div>
 				
+				
 				<?php unset($oferta); ?>
 	</tbody>
 	</table>
 </div>
-
+</div></div>
 
 <script>
 	
