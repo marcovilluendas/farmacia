@@ -67,7 +67,7 @@ class ResizerHelper extends AppHelper {
         $phpThumb->setParameter('zc', "C");
       }
       $phpThumb->setParameter('q', $opt['quality']);
-      $phpThumb->config_imagemagick_path = '/usr/bin/convert';
+      //$phpThumb->config_imagemagick_path = '/usr/bin/convert';
       //$phpThumb->config_prefer_imagemagick = true;
       //$phpThumb->config_output_format = 'png';
       $phpThumb->config_error_die_on_error = true;

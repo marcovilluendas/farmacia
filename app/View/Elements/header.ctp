@@ -1,5 +1,5 @@
 
-
+<div class="cabecera">
 		<div class="left">
 			
 			<h2><i class="fa fa-star"></i> FARMA</h2><h2 class="fino">LINK</h2>
@@ -65,7 +65,7 @@
 			*/ ?>
 			
 			<div class="clearfix"></div>
-
+</div>
 
 
 	

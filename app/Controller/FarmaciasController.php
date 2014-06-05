@@ -76,10 +76,12 @@ class FarmaciasController extends AppController {
 		}
 		
 		
-		public function edit($id = null) {
-		
+		public function edit($id=null) {
 			$uid = $this->Session->read('Auth.User.id');
-
+				if (!$id) {
+				throw new NotFoundException(__('Invalid post'));
+			}
+			
 				if (empty($uid)){
 						$this->Session->setFlash('No esta conectado');
 						$this->redirect(array('controller' => 'users', 'action' => 'login'));

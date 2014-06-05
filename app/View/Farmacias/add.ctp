@@ -19,6 +19,7 @@ echo $this->Html->css('/js/fancybox/jquery.fancybox');
 echo $this->Html->script('fancybox/jquery.fancybox.js');
 
 ?>
+<div class="containerindex">
 <div class="container">
 <div class="row">
 	<div class="col-lg-12 col-md-12">
@@ -92,7 +93,7 @@ echo $this->Html->script('fancybox/jquery.fancybox.js');
 		
 
 
-		
+</div>	
 </div>
 
 

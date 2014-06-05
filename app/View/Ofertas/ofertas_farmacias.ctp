@@ -1,12 +1,10 @@
 ﻿<style type="text/css" title="currentStyle">
-			@import "../../DataTables/media/css/demo_page.css"; @import "../../DataTables/media/css/header.ccss";
+			@import "../../DataTables/media/css/demo_page.css"; @import "../../DataTables/media/css/header.css";
 			@import "../../DataTables/media/css/demo_table.css";
 </style>
 <script type="text/javascript" src="../../DataTables/media/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/base/jquery-ui.css" />
-
-
 
 <script>
 
@@ -41,7 +39,7 @@ $(document).ready(function() {
 </script>
 
 
-<div class="container">
+<div class="containerindex">
 <div class="contenido">
 <div class="row">
 	<div id="add_post" class="add_from_admin dialog_form" title="Nueva Oferta">
@@ -58,14 +56,14 @@ $(document).ready(function() {
 	<table id="myTable">
 				<thead>
 					<tr>
-						<th class="arti">Artículo</th>
-						<th>Descripcion</th>
-						<th width="80">Precio</th>
-						<th>Stock</th>
-						<th>Farmacia</th>
-						<th>Dirección</th>
-						<th>Localidad</th>
-						<th>Ver/Editar/Borrar</th>
+						<th class="arti center">Artículo</th>
+						<th class="center">Descripcion</th>
+						<th class="center preciot">Precio</th>
+						<th class="center">Stock</th>
+						<th class="center">Validez</th>
+						<th class="center">Farmacia</th>
+						
+						<th class="center">Ver/Editar/Borrar</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -74,12 +72,13 @@ $(document).ready(function() {
 					<tr>
 						<td class="arti"><?php echo $oferta['Oferta']['articulo']; ?></td>
 						<td><?php echo $oferta['Oferta']['descripcion']; ?></td>
-						<td><?php echo $oferta['Oferta']['precio']; ?> €</td>
+						<td class="preciot"><?php echo $oferta['Oferta']['precio']; ?> €</td>
 						<td><?php echo $oferta['Oferta']['stock']; ?></td>
+						<td width="150"><?php echo $oferta['Oferta']['validez']; ?></td>
 						<td><?php echo $this->Html->link('', array('action' => 'view', $oferta['Farmacia']['id'])); ?>
 						<?php echo $oferta['Farmacia']['nombre']; ?></td>
-						<td><?php echo $oferta['Farmacia']['direccion']; ?></td>
-						<td><?php echo $oferta['Farmacia']['localidad']; ?></td>
+						
+						
 
 						<td>
 						
@@ -107,27 +106,30 @@ $(document).ready(function() {
 				<div class="actions right">
 					<ul>
 						<li><a href="#" class="boton_admin add">
-							<span class="add">Insertar Nueva Oferta</span></a>
+							<span class="add">NUEVA OFERTA</span></a>
 						</li>
 						<li>
-							<?php echo $this->Html->link("Editar Farmacia", 
+							<?php echo $this->Html->link("EDITAR FARMACIA", 
 									array(
 									'controller' => 'farmacias', 
 									'action' => 'edit', 
-									'admin'=>false,
+									
 									$oferta['Farmacia']['id']
 									)); ?>
 						</li>
+						
 						
 						<li>
 							<?php echo $this->Html->link("MI FARMACIA", 
 									array(
 									'controller' => 'farmacias', 
 									'action' => 'view', 
-									'admin'=>false,
+									
 									$oferta['Farmacia']['id']
 									)); ?>				
 						</li>
+						
+						
 					</ul>
 				</div>
 				

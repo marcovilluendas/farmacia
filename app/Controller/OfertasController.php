@@ -34,7 +34,7 @@ var $components = array('Session');
         }
 		
 		
-		public function admin_add() {
+		public function admin_add($id = null) {
 		
 			if (!empty($this->request->data)) {
 				$this->Oferta->create();
@@ -53,8 +53,7 @@ var $components = array('Session');
 			
 	
 		public function admin_edit($id = null) {
-		
-		
+
 			$uid = $this->Session->read('Auth.User.id');
 				
 				if (empty($uid)){

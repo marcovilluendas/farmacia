@@ -11,10 +11,28 @@ html, body {
 
 .view {
 	background-color: white;
-	
+	margin-left: 20px;
+	padding: 10px;
+	text-align: justify;
 }
 
 
+.vista {
+	
+	font-size: 26px;
+	font-weight: bold;
+	font-family: 'Roboto', sans-serif;
+}
+
+
+
+.vista h3 {
+	font-size: 30px;
+	font-weight: bold;
+}
+.vista label {
+	font-size: 16px;
+}
 
 .map {
 	overflow: hidden;
@@ -37,13 +55,19 @@ html, body {
 }
 a {
 	text-decoration: none;
-	color: #6A98CA;
+	color: #3e5521;
+	font-weight: bold;
 	outline: none;
 	-webkit-transition: all 0.3s ease-out;
 	-moz-transition: all 0.3s ease-out;
 	-o-transition: all 0.3s ease-out;
 	transition: all 0.3s ease-out;
 }
+
+a:hover {
+	color: black;
+}
+
 
 a img {
 	-webkit-transition: all 0.3s ease-out;
@@ -58,7 +82,6 @@ a .btn-lista:hover {
 	-moz-transition: all 0.3s ease-out;
 	-o-transition: all 0.3s ease-out;
 	transition: all 0.3s ease-out;
-
 }
 
 .btn-index {
@@ -69,7 +92,6 @@ a .btn-lista:hover {
 
 /** Layout **/
 #container {
-
 	text-align: left;
 	background: url('../img/bckg.jpg');
 	background-position: bottom center;
@@ -77,8 +99,30 @@ a .btn-lista:hover {
 	height: auto;
 	width: auto;
 	min-height: 80%;
+	margin: 0 auto;
 }
 
+.containerindex {
+	background-position: bottom center;
+	background-size: 100% 100%;
+	height: auto;
+	width: 80%;
+	min-height: 80%;
+	margin: 0 auto;
+	background-color: white;
+	border-radius: 15px;
+	}
+
+
+
+.lis {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.row {
+	margin: 0 auto;
+}
 .contenido {
 	background-color: rgb(255, 255, 255);
     /* RGBa with 0.6 opacity */
@@ -88,10 +132,12 @@ a .btn-lista:hover {
     /* For IE 8*/
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
 	margin: 0 auto;
+	width: auto;
 	height: auto;
 	padding: 40px;
 	
 }
+
 
 
 .contenido h1 {
@@ -164,18 +210,13 @@ a .btn-lista:hover {
 }
 
 
-
-
-
-a {
-	color: #003d4c;
-	text-decoration: none;
-	font-weight: bold;
-}
 a:hover {
 	color: #367889;
 	text-decoration:none;
 }
+
+
+
 a img {
 	border:none;
 }
@@ -246,13 +287,13 @@ box-shadow: 4px 4px 8px 0px rgba(0,0,0,0.52);
 
 .right {
 	float: right;
-	padding: 10px;
+	padding: 25px;
 	color: #3e5521;
-	font-size: 18px;
+	font-size: 24px;
 	font-weight: bold;
 	text-decoration: none;
-	border: 3px solid #3e5521;
 	margin-bottom: 20px;
+	font-family: 'Roboto', sans-serif;
 }
 
 .right li {
@@ -265,16 +306,17 @@ box-shadow: 4px 4px 8px 0px rgba(0,0,0,0.52);
 	color: #3e5521;
 }
 
-.right a:hover {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #1e62d0), color-stop(1, #3d94f6) );
-	background:-moz-linear-gradient( center top, #1e62d0 5%, #3d94f6 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e62d0', endColorstr='#3d94f6');
-	background-color:#1e62d0;
+#header .right li a:hover {
+	color: white;
+	background-color: white;
 }
-
-
-
-
+.right a:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #3e5521), color-stop(1, #3e5521) );
+	background:-moz-linear-gradient( center top, #3e5521 5%, #3d94f6 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3e5521', endColorstr='#3e5521');
+	color: white;
+	text-decoration: none;
+}
 
 
 .formulario {
@@ -321,20 +363,8 @@ box-shadow: 4px 4px 8px 0px rgba(0,0,0,0.52);
 }
 
 
-thead {
-	background-color: #1e62d0;
-	font-weight: bold;
-	color: white;
-}
 
-th {
-	background-color: #1e62d0;
-	font-weight: bold;
-	color: white;
-	min-width: 100px;
-	}
 
-	
 nav ul {
 	padding: 15px;
 }
@@ -365,12 +395,32 @@ table {
 	color: #333;
 	margin-bottom: 10px;
 	width: 100%;
+	font-family: 'Roboto', sans-serif;
 }
+
+thead {
+	background-color: #1e62d0;
+	font-weight: bold;
+	color: white;
+}
+
 th {
-	border:0;
-	border-bottom:2px solid #555;
-	text-align: left;
-	padding:6px;
+	background-color: #1e62d0;
+	font-weight: bold;
+	color: white;
+	min-width: 100px;
+	text-align: center;
+	padding: 3px;
+}
+
+th.center  {
+	background-color: #3e5521;
+	font-weight: bold;
+	color: white;
+	min-width: 100px;
+	text-align: center;
+	padding: 6px;
+	font-size: 20px;
 }
 
 
@@ -384,9 +434,9 @@ th {
 	width: 200px;
 }
 .preciot {
-	font-size: 20px;
+	font-size: 24px;
 	width: 150px;
-	text-align: center;
+	text-align: justify;
 	font-weight: 600;
 }
 
@@ -407,7 +457,7 @@ table tr td {
 	padding: 6px;
 	padding-right: 25px;
 	padding-left: 5px;
-	text-align: left;
+	text-align: center;
 	vertical-align: top;
 	border-bottom:1px solid #ddd;
 }

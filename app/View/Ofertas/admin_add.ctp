@@ -31,6 +31,7 @@ echo $this->Html->script('fancybox/jquery.fancybox.js');
 					echo $this->Form->input('descripcion');
 					echo $this->Form->input('precio');
 					echo $this->Form->input('stock');
+					echo $this->Form->input('validez');
 
 			?>
 

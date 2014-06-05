@@ -5,7 +5,6 @@
 
 <script type="text/javascript" src="../DataTables/media/js/jquery.dataTables.min.js"></script>
 
-
 <script>
 $(document).ready(function() {
     $('#myTable').dataTable({
@@ -36,49 +35,61 @@ $(document).ready(function() {
 } );
 </script>
 
-<div class="container">
-<div class="contenido">
-<div class="row">
-<h1> Listado de Ofertas </h1>
-	<div class="col-lg-12 col-md-12">
-	
-		<table id="myTable">
-		
-					<thead>
-						<tr>
-							<th class="arti">Artículo</th>
-							<th>Descripcion</th>
-							<th class="preciot">Precio</th>
-							<th>Farmacia</th>
-							<th>Dirección</th>
-							<th>Localidad</th>
-							<th>CPostal</th>
-							<th>Ver/Editar</th>
-						</tr>
-					</thead>
-					<tbody>
-					
-					<?php  foreach ($ofertas as $oferta): ?>
-					
-						<tr>
-							<td class="arti"><?php echo $oferta['Oferta']['articulo']; ?></td>
-							<td><?php echo $oferta['Oferta']['descripcion']; ?></td>
-							<td class="preciot"><?php echo $oferta['Oferta']['precio']; ?> €</td>
-							<td>
-							<?php echo $this->Html->link($oferta['Farmacia']['nombre'], array('controller' => 'farmacias', 'action' => 'view', $oferta['Farmacia']['id'])); ?>
+<div class="containerindex">
+	<div class="contenido">
+		<div class="row">
+		<h1> Listado de Ofertas </h1>
+			<div class="col-lg-12 col-md-12">
+			
+				<table id="myTable">
+				
+							<thead>
+								<tr>
+									<th></th>
+									<th class="center">Artículo</th>
+									<th class="center">Descripcion</th>
+									<th class="center">Precio</th>
+									<th class="center">Validez</th>
+									<th class="center">Farmacia</th>
+									<th class="center">Dirección</th>
+									<th class="center">Localidad</th>
+									<th class="center">CP</th>
+									<th class="center">Ver</th>
+								</tr>
+							</thead>
+							<tbody>
 							
-							</td>
-							<td><?php echo $oferta['Farmacia']['direccion']; ?></td>
-							<td><?php echo $oferta['Farmacia']['localidad']; ?></td>
-							<td><?php echo $oferta['Farmacia']['cp']; ?></td>
-							<td><button type="button" class="btn"><?php echo $this->Html->link('VER', array('action' => 'view',$oferta['Oferta']['id'])); ?>
-						</tr>
-					
-					<?php endforeach; ?>
-					<?php unset($oferta); ?>
-					</tbody>
-	</table>
+							<?php  foreach ($ofertas as $oferta): ?>
+							
+								<tr>
+									<td> 
+										<? foreach($oferta['Image'] as $img): ?>
+											<img src="<?=Router::url("/files/images/".$img['archivo']) ?>" style="height:50px; width:50px">
+										<? endforeach; ?><br>
+									</td>
+									<td class="arti"><?php echo $oferta['Oferta']['articulo']; ?>
+									
+									
+									</td>
+									
+									<td><?php echo $oferta['Oferta']['descripcion']; ?></td>
+									<td class="preciot"><?php echo $oferta['Oferta']['precio']; ?> €</td>
+									<td><?php echo $oferta['Oferta']['validez']; ?></td>
+									<td>
+									<?php echo $this->Html->link($oferta['Farmacia']['nombre'], array('controller' => 'farmacias', 'action' => 'view', $oferta['Farmacia']['id'])); ?>
+									
+									</td>
+									<td><?php echo $oferta['Farmacia']['direccion']; ?></td>
+									<td><?php echo $oferta['Farmacia']['localidad']; ?></td>
+									<td><?php echo $oferta['Farmacia']['cp']; ?></td>
+									<td><button type="button" class="btn"><?php echo $this->Html->link('VER', array('action' => 'view',$oferta['Oferta']['id'])); ?>
+								</tr>
+							
+							<?php endforeach; ?>
+							<?php unset($oferta); ?>
+							</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
-</div>
-</div>
 </div>

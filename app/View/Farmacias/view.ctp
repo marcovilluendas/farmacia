@@ -1,6 +1,4 @@
 ﻿
-
-<div class="section-colored">
 <div class="row view">
 
 	<div class="col-lg-5 col-md-6 col-xs-12">
@@ -9,13 +7,21 @@
 
 					<h1><?=$farmacia['Farmacia']['nombre']?></h1>
 					<hr>
-
-			
+					
+					
+			<div class="vistaizq">
 				<? foreach($farmacia['Image'] as $img): ?>
 					<img src="<?=Router::url("/files/images/".$img['archivo']) ?>" style="height:200px; width:200px">
 				<? endforeach; ?>
+			</div>	
 				
-				
+
+			<div class="vista">
+				<label>Dirección: </label><h3><?=$farmacia['Farmacia']['direccion']?></h3>
+				<label>Código Postal: </label><h3><?=$farmacia['Farmacia']['cp']?></h3>
+				<label>Email: </label> <h3><?=$farmacia['Farmacia']['email']?></h3>
+			</div>
+			
 				<body onLoad="load();"  onunload="GUnload();">
 			
 						<!-- div donde se dibuja el mapa-->
@@ -29,21 +35,15 @@
 						<?php echo $this->Form->input('lat', array('readonly name' => 'lat', 'id' => 'lat', 'type' => 'hidden')); ?></p>
 						<?php echo $this->Form->input('long', array('readonly name' => 'long', 'id' => 'long', 'type' => 'hidden')); ?></p>
 			
-			</form>
+						</form>
 
-			<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
+						<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
 			
-		 </body>
-
-
-				
-				
-				<label>Dirección: <h3><?=$farmacia['Farmacia']['direccion']?></h3>
-				
-				<label>Código Postal: </label><h3><?=$farmacia['Farmacia']['cp']?></h3>
-				<label>Email: </label> <h3><?=$farmacia['Farmacia']['email']?></h3>
+				</body>
 				
 	</div>
+	
+	
 	<div class="col-lg-1 col-md-1 col-xs-12">
 	</div>
 

@@ -16,7 +16,7 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 ?>
-
+<div class="containerindex">
 <div class="container">
 	<div class="row">
 	<div class="col-lg-12 col-md-12">
