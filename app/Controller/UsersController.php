@@ -4,7 +4,6 @@
 class UsersController extends AppController {
 
 	//public $components = array('Auth');
-	
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->allow('add', 'logout');

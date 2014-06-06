@@ -49,7 +49,17 @@
 									$uid
 									)); ?>
 								</li>
-	
+								
+								<li>
+									<?php echo $this->Html->link("Acceso a la Web", 
+									array(
+									'controller' => 'ofertas', 
+									'action' => 'index', 
+									'admin'=>false
+									
+									)); ?>
+								
+								</li>
 						</div> <?php
 				}
 		

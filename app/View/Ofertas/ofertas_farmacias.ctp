@@ -53,6 +53,7 @@ $(document).ready(function() {
 
 <h1> MIS OFERTAS ACTUALES </h1>
 
+
 	<table id="myTable">
 				<thead>
 					<tr>
@@ -103,33 +104,59 @@ $(document).ready(function() {
 					
 				<?php endforeach; ?>
 				
+				
 				<div class="actions right">
 					<ul>
 						<li><a href="#" class="boton_admin add">
 							<span class="add">NUEVA OFERTA</span></a>
 						</li>
+						
+						
+						<?php 
+						if (empty($oferta['Farmacia']['id'])){
+							?>
+							<p class="error">Necesita insertar una nueva oferta para poder finalizar el registro de su farmacia</p>
+							<?php
+						}
+						
+						else {
+						?>
+						
 						<li>
 							<?php echo $this->Html->link("EDITAR FARMACIA", 
 									array(
 									'controller' => 'farmacias', 
 									'action' => 'edit', 
-									
 									$oferta['Farmacia']['id']
 									)); ?>
 						</li>
+<?php
+						}
 						
+						
+						 ?>
+						
+						
+						
+						
+						<?php 
+						if (empty($oferta['Farmacia']['id'])){
+							
+						}
+						
+						else {
+						?>
 						
 						<li>
 							<?php echo $this->Html->link("MI FARMACIA", 
 									array(
 									'controller' => 'farmacias', 
 									'action' => 'view', 
-									
 									$oferta['Farmacia']['id']
 									)); ?>				
 						</li>
 						
-						
+						<?php } ?>
 					</ul>
 				</div>
 				

@@ -58,6 +58,8 @@ echo $this->Html->script('fancybox/jquery.fancybox.js');
 		echo $this->Form->input('telefono');
 		echo $this->Form->input('email');
 ?>		
+
+
 		<div onLoad="load();"  onunload="GUnload();">
      	<h4> Localizar su farmacia en google maps </h4>
 		<div class="pull-right">
@@ -86,6 +88,7 @@ echo $this->Html->script('fancybox/jquery.fancybox.js');
 
  		
 		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
+		
 		<?php echo $this->Form->end('Guardar');?>
 		</div>
      </div>

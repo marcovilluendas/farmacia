@@ -62,12 +62,11 @@ class FarmaciasController extends AppController {
 		public function add() {
 			if (!empty($this->request->data)) {
 				$this->Farmacia->create();
-				
-				
+
 				$this->request->data['Farmacia']['user_id'] = $this->Auth->User('id');
 
 				if ($this->Farmacia->save($this->request->data)) {
-					$this->redirect(array('action'=>'add', $this->Farmacia->id, 'admin'=>false));
+					$this->redirect(array('action' => 'ofertas_farmacias/$uid', 'controller'=>'ofertas', 'admin'=>false));
 				} else {
 					$this->Session->setFlash("El post no ha podido ser guardado. Inténtalo de nuevo.");
 					$this->redirectBack(array('action'=>'index', 'admin'=>false));

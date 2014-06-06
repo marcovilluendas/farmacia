@@ -160,8 +160,7 @@ var $components = array('Session');
 							
 					));
 					
-					
-					
+
 					if (!$farmacia) {
 						return $this->redirect(array('controller' => 'farmacias','action' => 'add'));
 					}

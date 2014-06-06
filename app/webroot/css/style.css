@@ -25,6 +25,10 @@ html, body {
 }
 
 
+p.error {
+	color: red;
+	font-size: 12px;
+}
 
 .vista h3 {
 	font-size: 30px;
