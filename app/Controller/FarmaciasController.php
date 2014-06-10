@@ -75,7 +75,7 @@ class FarmaciasController extends AppController {
 		}
 		
 		
-		public function edit($id=null) {
+		public function admin_edit($id = null) {
 			$uid = $this->Session->read('Auth.User.id');
 				if (!$id) {
 				throw new NotFoundException(__('Invalid post'));

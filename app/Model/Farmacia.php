@@ -1,11 +1,9 @@
 <?php
-
 /**
  * Application model for CakePHP.
  */
- 
-class Farmacia extends AppModel {
 
+class Farmacia extends AppModel {
 
 	public $primaryKey = 'id';
 	var $name = 'Farmacia';
@@ -25,6 +23,5 @@ class Farmacia extends AppModel {
 	);
 	
 }
-
 
 ?>

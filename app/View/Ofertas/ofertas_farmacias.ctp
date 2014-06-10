@@ -127,6 +127,7 @@ $(document).ready(function() {
 									array(
 									'controller' => 'farmacias', 
 									'action' => 'edit', 
+									'admin' => true,
 									$oferta['Farmacia']['id']
 									)); ?>
 						</li>
